@@ -4,7 +4,8 @@
   "description": "Micro service post Sond of cloudinary",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "node index.js",
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
