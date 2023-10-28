@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {cloudinary, CLOUDINARY_URL} = require('../configure/cloudinary');
+const {CLOUDINARY_URL} = require('../configure/cloudinary');
 
 class Track {
     constructor(){
