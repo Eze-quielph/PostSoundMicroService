@@ -5,7 +5,7 @@ const postMusic = (req, res)=>{
      // Obtenemos el path temporal del archivo en el servidor local
   const uploadLocation = req.file.path;
 
-  cloudinary.uploader.upload(uploadLocation, { resource_type: 'video', folder: 'audiofiles/', overwrite: true }, (error, result) => {
+  cloudinary.uploader.upload(uploadLocation, { resource_type: 'image', folder: 'imagefiles/', overwrite: true }, (error, result) => {
     // Eliminamos el archivo temporal del servidor local después de cargarlo en Cloudinary
     fs.unlink(uploadLocation, (deleteErr) => {
       if (deleteErr) {
