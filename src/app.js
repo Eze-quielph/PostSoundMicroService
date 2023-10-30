@@ -10,6 +10,6 @@ app.use(morgan('dev'))
 app.use(cors())
 
 //routes
-app.use('/', routes)
+app.use('/post', routes)
 
 module.exports = app

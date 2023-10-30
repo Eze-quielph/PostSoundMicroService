@@ -1,11 +1,11 @@
 const {cloudinary} = require('../configure/cloudinary')
 const fs = require('fs')
 
-const postMusic = (req, res)=>{
+const postImage = async (req, res)=>{
      // Obtenemos el path temporal del archivo en el servidor local
   const uploadLocation = req.file.path;
-
-  cloudinary.uploader.upload(uploadLocation, { resource_type: 'image', folder: 'imagefiles/', overwrite: true }, (error, result) => {
+  console.log(uploadLocation)
+  await cloudinary.uploader.upload(uploadLocation, { resource_type: 'image', folder: 'EventX/', overwrite: true }, (error, result) => {
     // Eliminamos el archivo temporal del servidor local después de cargarlo en Cloudinary
     fs.unlink(uploadLocation, (deleteErr) => {
       if (deleteErr) {
@@ -17,7 +17,7 @@ const postMusic = (req, res)=>{
         res.status(500).json(error);
       } else {
         console.log('Temp file was deleted');
-        res.status(200).json({ fileUrl: result.secure_url });
+        res.status(201).json({ fileUrl: result.secure_url });
       }
     });
   });
@@ -25,5 +25,5 @@ const postMusic = (req, res)=>{
 
 
 module.exports = {
-    postMusic
+  postImage
 }

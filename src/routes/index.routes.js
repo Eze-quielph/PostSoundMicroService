@@ -1,9 +1,12 @@
 const routes = require('express').Router();
 const multer = require('multer')
-const {postMusic} = require('../controller/music.controller')
+const {postImage} = require('../controller/music.controller')
 
 const upload = multer({ dest: 'uploads/' });
 
-routes.post('/postmusic', upload.single('file'), postMusic);
+routes.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+routes.post('/image', upload.single('jpg'), postImage);
 
 module.exports = routes
